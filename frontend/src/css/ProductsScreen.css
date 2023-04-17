@@ -1,0 +1,44 @@
+.product-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.Action_btn_in_table {
+	width: 10vw;
+	margin: 0 auto;
+}
+
+.table tr {
+	line-height: 24px;
+}
+.update_and_back_btn_div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 10vw;
+	margin: 5px auto;
+}
+.update_product_form {
+	width: 25vw;
+	margin: 20px auto;
+}
+.update_product_title {
+	margin: 10px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 40px;
+}
+.individual_div_in_update_product {
+	display: grid;
+	gap: 10px;
+	margin: 15px 0;
+}
+.field_label_in_form {
+	font-size: 20px;
+}
+.title_for_product_listing {
+	font-size: 45px;
+}

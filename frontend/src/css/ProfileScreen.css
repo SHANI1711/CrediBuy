@@ -1,0 +1,14 @@
+.title_in_profile_management_screen {
+	font-size: 40px;
+	margin: 0 auto;
+}
+.form {
+	width: 25vw;
+}
+.profile_update_btn {
+	background-color: #203040;
+	color: white;
+	font-size: larger;
+	width: 10vw;
+	margin: 0 auto;
+}

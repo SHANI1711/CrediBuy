@@ -1,0 +1,17 @@
+.search_input_field {
+	background-color: transparent;
+	color: white;
+	border-radius: 50px;
+}
+.search_input_field::placeholder {
+	color: rgb(255, 255, 255);
+	opacity: 0.5; /* Firefox */
+}
+.submit_btn {
+	border-radius: 50px;
+	/* margin-left: 10px; */
+	color: gray;
+}
+.submit_btn:hover {
+	color: white;
+}
