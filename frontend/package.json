@@ -21,11 +21,12 @@
 		"redux": "^4.0.5",
 		"redux-thunk": "^2.3.0",
 		"serve": "^12.0.0",
-		"server": "^1.0.34"
+		"server": "^1.0.34",
+		"webpack": "^4.42.0"
 	},
 	"scripts": {
-		"start": "react-scripts --openssl-legacy-provider start",
-		"build": "react-scripts build",
+		"start": "react-scripts start",
+		"build": "react-scripts --openssl-legacy-provider build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},

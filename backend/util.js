@@ -1,6 +1,7 @@
-import jwt from 'jsonwebtoken';
-import config from './config';
-import dotenv from 'dotenv';
+// import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
+const config = require('./config');
+const dotenv = require('dotenv');
 dotenv.config();
 const getToken = (user) => {
 	return jwt.sign(
@@ -10,7 +11,7 @@ const getToken = (user) => {
 			email: user.email,
 			isAdmin: user.isAdmin,
 		},
-		process.env.JWT_SECRET,
+		process.env.JWT_SECRET || 'somethingssecret',
 		{
 			expiresIn: '98h',
 		}
@@ -45,4 +46,4 @@ const isAdmin = (req, res, next) => {
 	return res.status(401).send({ message: 'Admin Token is not valid...' });
 };
 
-export { getToken, isAdmin, isAuth };
+module.exports = { getToken, isAdmin, isAuth };

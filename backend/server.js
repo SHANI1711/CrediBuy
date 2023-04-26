@@ -1,26 +1,29 @@
+// import express from 'express';
 const express = require('express');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
-import userRouter from '../backend/routers.js/userRouter';
-import productRouter from '../backend/routers.js/productRouter';
-import orderRouter from '../backend/routers.js/orderRouter';
 
 const cors = require('cors');
 const databaseConnection = require('./databaseConnection');
 
-import path from 'path';
+const bodyParser = require('body-parser');
+const userRouter = require('../backend/routers/userRouter');
+const productRouter = require('../backend/routers/productRouter');
+const orderRouter = require('../backend/routers/orderRouter');
+
+const path = require('path');
 dotenv.config();
 
 const app = express();
 
-const corsOptions = {
-	origin: '*',
-	credentials: true,
-	optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+app.use(
+	cors({
+		origin: true,
+		credentials: true,
+		methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+	})
+);
 app.use(express.static('frontend/build'));
-
+process.env.AWS_SDK_LOAD_CONFIG = 1;
 databaseConnection();
 
 app.use(function (req, res, next) {
@@ -47,8 +50,8 @@ app.use('/api/products', productRouter);
 app.get('*', (req, res) => {
 	res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
 });
-app.listen(process.env.PORT || 5001, () => {
-	console.log(`server started port ${process.env.PORT || 5001}   `);
+app.listen(5001, () => {
+	console.log(`server started port  5001   `);
 });
 
 process.on('SIGTERM', () => {

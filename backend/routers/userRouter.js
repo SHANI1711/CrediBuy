@@ -1,7 +1,8 @@
-import express from 'express';
-import User from '../models/userModel';
-import { getToken } from '../util';
-import { isAuth, isAdmin } from '../util';
+// import express from 'express';
+const express = require('express');
+const User = require('../models/userModel');
+const { getToken } = require('../util');
+const { isAuth, isAdmin } = require('../util');
 
 const router = express.Router();
 
@@ -152,4 +153,4 @@ router.delete('/:id', isAuth, async (req, res) => {
 		console.log(error);
 	}
 });
-export default router;
+module.exports = router;

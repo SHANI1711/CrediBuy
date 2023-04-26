@@ -16,14 +16,18 @@ import {
 	PRODUCT_REVIEW_SAVE_SUCCESS,
 } from '../constants/productConstants';
 import axios from 'axios';
+import { BACKEND_URI } from '../config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const listProducts =
 	(searchKeyword = '', sortOrder = '') =>
 	async (dispatch) => {
 		try {
+			console.log(BACKEND_URI);
 			dispatch({ type: PRODUCT_LIST_REQUEST });
 			const { data } = await axios.get(
-				'http://127.0.0.1:5001/api/products?searchKeyword=' +
+				`${BACKEND_URI}/api/products?searchKeyword=` +
 					searchKeyword +
 					'&sortOrder=' +
 					sortOrder
@@ -41,37 +45,6 @@ const listProducts =
 					List: 'HomePage List',
 				});
 			}
-
-			// dispatch({ type: PRODUCT_LIST_REQUEST });
-			// async function callTwoAPIs() {
-			// 	try {
-			// 		const { data } = await axios.get(
-			// 			'http://127.0.0.1:5001/api/products?searchKeyword=' +
-			// 				searchKeyword +
-			// 				'&sortOrder=' +
-			// 				sortOrder
-			// 		);
-			// 		const {response2} = await axios.get(
-			// 			'http://127.0.0.1:5001/api/products'
-			// 		);
-			// 	} catch (error) {
-			// 		console.error(error);
-			// 	}
-			// }
-			// callTwoAPIs();
-			// if (searchKeyword.length > 1) {
-			// 	dispatch({
-			// 		type: PRODUCT_LIST_SUCCESS,
-			// 		payload: data,
-			// 		List: 'SearchPage List',
-			// 	});
-			// } else {
-			// 	dispatch({
-			// 		type: PRODUCT_LIST_SUCCESS,
-			// 		payload: data,
-			// 		List: 'HomePage List',
-			// 	});
-			// }
 		} catch (error) {
 			dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
 		}
@@ -85,7 +58,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
 		} = getState();
 		if (!product._id) {
 			const { data } = await axios.post(
-				'http://127.0.0.1:5001/api/products',
+				`${BACKEND_URI}/api/products`,
 				product,
 				{
 					headers: {
@@ -97,7 +70,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
 			dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
 		} else {
 			const { data } = await axios.put(
-				'http://127.0.0.1:5001/api/products/' + product._id,
+				`${BACKEND_URI}/api/products/` + product._id,
 				product,
 				{
 					headers: {
@@ -117,7 +90,7 @@ const detailsProduct = (productId, listName) => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });
 		const { data } = await axios.get(
-			'http://127.0.0.1:5001/api/products/' + productId
+			`${BACKEND_URI}/api/products/` + productId
 		);
 		window.dataLayer.push({
 			event: 'productView',
@@ -169,7 +142,7 @@ const deleteProdcut = (productId) => async (dispatch, getState) => {
 		} = getState();
 		dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
 		const { data } = await axios.delete(
-			'http://127.0.0.1:5001/api/products/' + productId,
+			`${BACKEND_URI}/api/products/` + productId,
 			{
 				headers: {
 					Authorization: 'Bearer ' + userInfo.token,
@@ -191,7 +164,7 @@ const saveProductReview = (productId, review) => async (dispatch, getState) => {
 		} = getState();
 		dispatch({ type: PRODUCT_REVIEW_SAVE_REQUEST, payload: review });
 		const { data } = await axios.post(
-			`http://127.0.0.1:5001/api/products/${productId}/reviews`,
+			`${BACKEND_URI}/api/products/${productId}/reviews`,
 			review,
 			{
 				headers: {

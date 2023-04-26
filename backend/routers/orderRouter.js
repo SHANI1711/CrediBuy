@@ -1,7 +1,8 @@
-import express from 'express';
-import Order from '../models/orderModel';
-import { isAuth, isAdmin } from '../util';
-import axios from 'axios';
+// import express from 'express';
+const express = require('express');
+const Order = require('../models/orderModel');
+const { isAuth, isAdmin } = require('../util');
+const axios = require('axios');
 
 const router = express.Router();
 
@@ -49,8 +50,7 @@ router.post('/', isAuth, async (req, res) => {
 	try {
 		const newPlacedOrder = await newOrder.save();
 
-		const apiMailUrl =
-			' https://18sn1hvoz1.execute-api.us-east-1.amazonaws.com/production/sendemail';
+		const apiMailUrl = `${process.env.API_GATEWAY_URL_FOR_EMAIL}sendemail`;
 
 		try {
 			await axios.post(apiMailUrl, {
@@ -113,4 +113,4 @@ router.delete('/:id', isAuth, async (req, res) => {
 	}
 });
 
-export default router;
+module.exports = router;

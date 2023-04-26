@@ -17,7 +17,6 @@
 Create `.env` file at the root level and create an environment variable. This file will look like this:
 
 ```
-PORT = <SERVER PORT NUMBER>
 JWT_SECRET=<ENTER JWT SECRET>
 REGION=<AWS REGION>
 ACCESSKEYID=<AWS ACCESSKEY ID>

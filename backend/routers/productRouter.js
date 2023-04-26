@@ -1,7 +1,7 @@
-import express from 'express';
-import Product from '../models/productModel';
-import { isAuth, isAdmin } from '../util';
-import config from '../config';
+// import express from 'express';
+const express = require('express');
+const Product = require('../models/productModel');
+const { isAuth, isAdmin } = require('../util');
 const dotenv = require('dotenv');
 dotenv.config();
 const AWS = require('aws-sdk');
@@ -127,4 +127,4 @@ router.post(
 	}
 );
 
-export default router;
+module.exports = router;

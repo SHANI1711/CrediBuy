@@ -23,10 +23,6 @@ function HomeScreen(props) {
 		return () => {};
 	}, [queryparmas, category]);
 
-	// const submitHandler = (e) => {
-	// 	e.preventDefault();
-	// 	dispatch(listProducts(searchKeyword));
-	// };
 	const sortHandler = (e) => {
 		setSortOrder(e.target.value);
 		dispatch(listProducts(searchKeyword, sortOrder));
@@ -129,7 +125,6 @@ function HomeScreen(props) {
 								</div>
 								<div className="product-brand"> from {product.brand}</div>
 								<div className="product-price">${product.price}</div>
-								{/* <div className="product-rating"></div> */}
 							</div>
 						</li>
 					))}

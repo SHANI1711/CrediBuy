@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import {
 	ORDER_CREATE_REQUEST,
 	ORDER_CREATE_SUCCESS,
@@ -19,6 +18,10 @@ import {
 	ORDER_LIST_SUCCESS,
 	ORDER_LIST_FAIL,
 } from '../constants/orderConstants';
+import Axios from 'axios';
+import { BACKEND_URI } from '../config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const createOrder = (order) => async (dispatch, getState) => {
 	try {
@@ -28,7 +31,7 @@ const createOrder = (order) => async (dispatch, getState) => {
 		} = getState();
 		const {
 			data: { data: newOrder },
-		} = await Axios.post('http://127.0.0.1:5001/api/orders', order, {
+		} = await Axios.post(`${BACKEND_URI}/api/orders`, order, {
 			headers: {
 				Authorization: ' Bearer ' + userInfo.token,
 			},
@@ -45,7 +48,7 @@ const listOrders = () => async (dispatch, getState) => {
 		const {
 			userSignin: { userInfo },
 		} = getState();
-		const { data } = await Axios.get('http://127.0.0.1:5001/api/orders', {
+		const { data } = await Axios.get(`${BACKEND_URI}/api/orders`, {
 			headers: { Authorization: 'Bearer ' + userInfo.token },
 		});
 		dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
@@ -60,12 +63,9 @@ const detailsOrder = (orderId) => async (dispatch, getState) => {
 		const {
 			userSignin: { userInfo },
 		} = getState();
-		const { data } = await Axios.get(
-			'http://127.0.0.1:5001/api/orders/' + orderId,
-			{
-				headers: { Authorization: 'Bearer ' + userInfo.token },
-			}
-		);
+		const { data } = await Axios.get(`${BACKEND_URI}/api/orders/` + orderId, {
+			headers: { Authorization: 'Bearer ' + userInfo.token },
+		});
 		dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
 	} catch (error) {
 		dispatch({ type: ORDER_DETAILS_FAIL, payload: error.message });
@@ -79,7 +79,7 @@ const payOrder = (order, paymentResult) => async (dispatch, getState) => {
 			userSignin: { userInfo },
 		} = getState();
 		const { data } = await Axios.put(
-			'http://127.0.0.1:5001/api/orders/' + order._id + '/pay',
+			`${BACKEND_URI}/api/orders/` + order._id + '/pay',
 			paymentResult,
 			{
 				headers: { Authorization: 'Bearer ' + userInfo.token },
@@ -97,12 +97,9 @@ const deleteOrder = (order) => async (dispatch, getState) => {
 		const {
 			userSignin: { userInfo },
 		} = getState();
-		const { data } = await Axios.delete(
-			'http://127.0.0.1:5001/api/orders/' + order,
-			{
-				headers: { Authorization: 'Bearer ' + userInfo.token },
-			}
-		);
+		const { data } = await Axios.delete(`${BACKEND_URI}/api/orders/` + order, {
+			headers: { Authorization: 'Bearer ' + userInfo.token },
+		});
 		dispatch({ type: ORDER_DELETE_SUCCESS, payload: data });
 	} catch (error) {
 		dispatch({ type: ORDER_DELETE_FAIL, payload: error.message });
@@ -115,7 +112,7 @@ const listMyOrders = () => async (dispatch, getState) => {
 		const {
 			userSignin: { userInfo },
 		} = getState();
-		const { data } = await Axios.get('http://127.0.0.1:5001/api/orders/mine', {
+		const { data } = await Axios.get(`${BACKEND_URI}/api/orders/mine`, {
 			headers: { Authorization: 'Bearer ' + userInfo.token },
 		});
 		dispatch({ type: MY_ORDER_LIST_SUCCESS, payload: data });

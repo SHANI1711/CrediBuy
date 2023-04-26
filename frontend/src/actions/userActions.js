@@ -1,5 +1,3 @@
-import Axios from 'axios';
-import Cookie from 'js-cookie';
 import {
 	USER_SIGNIN_REQUEST,
 	USER_SIGNIN_SUCCESS,
@@ -22,6 +20,11 @@ import {
 	USER_LIST_SUCCESS,
 	USER_LIST_FAIL,
 } from '../constants/userConstants';
+import Axios from 'axios';
+import Cookie from 'js-cookie';
+import { BACKEND_URI } from '../config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const update =
 	({ userId, name, email, password }) =>
@@ -35,7 +38,7 @@ const update =
 		});
 		try {
 			const { data } = await Axios.put(
-				'http://127.0.0.1:5001/api/users/' + userId,
+				`${BACKEND_URI}/api/users/` + userId,
 				{ name, email, password },
 				{
 					headers: {
@@ -53,10 +56,10 @@ const update =
 const signin = (email, password) => async (dispatch) => {
 	dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
 	try {
-		const { data } = await Axios.post(
-			'http://127.0.0.1:5001/api/users/signin',
-			{ email, password }
-		);
+		const { data } = await Axios.post(`${BACKEND_URI}/api/users/signin`, {
+			email,
+			password,
+		});
 		dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
 		Cookie.set('userInfo', JSON.stringify(data));
 	} catch (error) {
@@ -73,14 +76,11 @@ const signin = (email, password) => async (dispatch) => {
 const register = (name, email, password) => async (dispatch) => {
 	dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
 	try {
-		const { data } = await Axios.post(
-			'http://127.0.0.1:5001/api/users/register',
-			{
-				name,
-				email,
-				password,
-			}
-		);
+		const { data } = await Axios.post(`${BACKEND_URI}/api/users/register`, {
+			name,
+			email,
+			password,
+		});
 		Cookie.set('userInfo', JSON.stringify(data));
 		dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
 		dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
@@ -103,7 +103,7 @@ const updateUserProfile = (user) => async (dispatch, getState) => {
 	} = getState();
 	try {
 		const { data } = await Axios.put(
-			`http://127.0.0.1:5001/api/users/profile/:id`,
+			`${BACKEND_URI}/api/users/profile/:id`,
 			user,
 			{
 				headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -127,12 +127,9 @@ const detailsUser = (userId) => async (dispatch, getState) => {
 		userSignin: { userInfo },
 	} = getState();
 	try {
-		const { data } = await Axios.get(
-			`http://127.0.0.1:5001/api/users/${userId}`,
-			{
-				headers: { Authorization: `Bearer ${userInfo?.token}` },
-			}
-		);
+		const { data } = await Axios.get(`${BACKEND_URI}/api/users/${userId}`, {
+			headers: { Authorization: `Bearer ${userInfo?.token}` },
+		});
 		dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
 	} catch (error) {
 		const message =
@@ -149,7 +146,7 @@ const listUsers = (userId) => async (dispatch, getState) => {
 		const {
 			userSignin: { userInfo },
 		} = getState();
-		const { data } = await Axios.get('http://127.0.0.1:5001/api/users', {
+		const { data } = await Axios.get(`${BACKEND_URI}/api/users`, {
 			headers: {
 				Authorization: `Bearer ${userInfo.token}`,
 			},
@@ -170,14 +167,11 @@ const deleteUser = (userId) => async (dispatch, getState) => {
 		const {
 			userSignin: { userInfo },
 		} = getState();
-		const { data } = await Axios.delete(
-			`http://127.0.0.1:5001/api/users/${userId}`,
-			{
-				headers: {
-					Authorization: `Bearer ${userInfo.token}`,
-				},
-			}
-		);
+		const { data } = await Axios.delete(`${BACKEND_URI}/api/users/${userId}`, {
+			headers: {
+				Authorization: `Bearer ${userInfo.token}`,
+			},
+		});
 		dispatch({ type: USER_LIST_SUCCESS, payload: data });
 	} catch (error) {
 		const message =

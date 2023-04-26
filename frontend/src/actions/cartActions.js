@@ -1,15 +1,18 @@
-import Axios from 'axios';
 import {
 	CART_ADD_ITEM,
 	CART_REMOVE_ITEM,
 	CART_SAVE_SHIPPING,
 	CART_SAVE_PAYMENT,
 } from '../constants/cartConstants';
+import { BACKEND_URI } from '../config';
+import Axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const addToCart = (productId, qty) => async (dispatch, getState) => {
 	try {
 		const { data } = await Axios.get(
-			'http://127.0.0.1:5001/api/products/' + productId
+			`${BACKEND_URI}/api/products/` + productId
 		);
 		dispatch({
 			type: CART_ADD_ITEM,
