@@ -11,7 +11,7 @@
 
 # **Cloud Infrastructure**
 
-![CrediBuy drawio](https://user-images.githubusercontent.com/70198866/235216298-e02d41f4-a8ad-459a-a155-31b41579e907.png)
+![CrediBuy drawio](https://user-images.githubusercontent.com/70198866/235216510-217a4c2b-8c9a-444f-860d-ff7cd4b194aa.svg)
 
 # **User Interface**
 
