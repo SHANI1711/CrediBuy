@@ -12,27 +12,48 @@
 
 ### Application Home Page
 
+<img width="1680" alt="Screenshot 2023-04-28 at 12 15 52 PM" src="https://user-images.githubusercontent.com/70198866/235189766-56f8161d-ed8d-473d-ac5e-9c4e4d002132.png">
+
 ## Admin Functions
 
 ### Product Management
 
+<img width="1680" alt="Screenshot 2023-04-28 at 12 16 27 PM" src="https://user-images.githubusercontent.com/70198866/235189919-0c818af8-8712-4a02-ab59-814b004b5b92.png">
+
 ### Create New Product
+
+<img width="848" alt="Screenshot 2023-04-28 at 12 17 28 PM" src="https://user-images.githubusercontent.com/70198866/235189983-70b4014c-e01b-4a66-9494-f9dcc3fed771.png">
 
 ### Order Management
 
+<img width="1680" alt="Screenshot 2023-04-28 at 12 16 43 PM" src="https://user-images.githubusercontent.com/70198866/235190028-cc0d2319-b9ae-47d2-a997-b9bd88d3c8f5.png">
+
 ### User Management
+
+<img width="1680" alt="Screenshot 2023-04-28 at 12 16 52 PM" src="https://user-images.githubusercontent.com/70198866/235190076-0aeb77fd-9f4d-409d-a32b-5e64bf8a4be1.png">
 
 ## User Functions
 
 ### Product Details Page
 
+<img width="1676" alt="Screenshot 2023-04-28 at 12 18 26 PM" src="https://user-images.githubusercontent.com/70198866/235190164-4c22c630-6094-4a76-a559-a97ab972c1b8.png">
+
 ### Cart
+
+<img width="1680" alt="Screenshot 2023-04-28 at 12 18 40 PM" src="https://user-images.githubusercontent.com/70198866/235190205-4e0b4963-4d8a-4508-a948-f0acbbe651c3.png">
 
 ### Checkout
 
+<img width="1680" alt="Screenshot 2023-04-28 at 12 19 25 PM" src="https://user-images.githubusercontent.com/70198866/235190273-4b2b7c6a-d839-4429-b39a-e88e4d37c863.png">
+
 ### Order History
 
+<img width="1680" alt="Screenshot 2023-04-28 at 12 19 48 PM" src="https://user-images.githubusercontent.com/70198866/235190306-4b8519c3-aa25-4402-8e1a-71b3a00f2130.png">
+
 ### Profile Management
+
+<img width="603" alt="Screenshot 2023-04-28 at 12 20 26 PM" src="https://user-images.githubusercontent.com/70198866/235190512-60a4c2a2-d69f-4cb2-af5a-079482315a4d.png">
+
 
 # **Getting Started**
 
