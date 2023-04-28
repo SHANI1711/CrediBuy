@@ -119,6 +119,8 @@ Both theclient and server are now running.
 
 # **Cloud Infrastructure**
 
+![CrediBuy drawio](https://user-images.githubusercontent.com/70198866/235218533-bf3ba30a-ac86-4f6f-b635-b7138ec20e64.jpeg)
+
 # **User Interface**
 
 ### Application Home Page
