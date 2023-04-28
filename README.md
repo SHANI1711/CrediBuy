@@ -8,7 +8,31 @@
 
 ### Admins can see the list of products listed for sale, delete or add new products, update product details, and see the list of orders placed on CrediBuy. Moreover, sellers can also reject orders for a specific reason, and the user will get notified via email about the cancelation.
 
-#
+# **User Interface**
+
+### Application Home Page
+
+## Admin Functions
+
+### Product Management
+
+### Create New Product
+
+### Order Management
+
+### User Management
+
+## User Functions
+
+### Product Details Page
+
+### Cart
+
+### Checkout
+
+### Order History
+
+### Profile Management
 
 # **Getting Started**
 
