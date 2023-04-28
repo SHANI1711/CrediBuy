@@ -8,6 +8,11 @@
 
 ### Admins can see the list of products listed for sale, delete or add new products, update product details, and see the list of orders placed on CrediBuy. Moreover, sellers can also reject orders for a specific reason, and the user will get notified via email about the cancelation.
 
+
+# **Cloud Infrastructure**
+
+![CrediBuy drawio](https://user-images.githubusercontent.com/70198866/235216298-e02d41f4-a8ad-459a-a155-31b41579e907.png)
+
 # **User Interface**
 
 ### Application Home Page
