@@ -26,9 +26,6 @@ function App() {
 	const cart = useSelector((state) => state.cart);
 	const { userInfo } = userSignin;
 
-	// const openMenu = () => {
-	// 	document.querySelector('.sidebar').classList.add('open');
-	// };
 	const closeMenu = () => {
 		document.querySelector('.sidebar').classList.remove('open');
 	};
@@ -44,13 +41,6 @@ function App() {
 			<div className="grid-container">
 				<header className="row">
 					<div>
-						{/* <button
-							className="menu_btn_in_navbar"
-							onClick={openMenu}
-						>
-							&#9776;
-						</button> */}
-
 						<Link to="/">
 							<span className="first-half-logo">Credi</span>
 							<span className="second-half-logo">Buy</span>
@@ -104,9 +94,6 @@ function App() {
 										Admin Functions <i className="fa fa-caret-down"></i>
 									</Link>
 									<ul className="dropdown-content">
-										{/* <li>
-											<Link to="/dashboard">Dashboard</Link>
-										</li> */}
 										<li>
 											<Link to="/products">Products</Link>
 										</li>
@@ -116,9 +103,6 @@ function App() {
 										<li>
 											<Link to="/userlist">Users</Link>
 										</li>
-										{/* <li>
-											<Link to="/support">Support</Link>
-										</li> */}
 									</ul>
 								</div>
 							)}

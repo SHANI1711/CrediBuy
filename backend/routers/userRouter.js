@@ -1,4 +1,3 @@
-// import express from 'express';
 const express = require('express');
 const User = require('../models/userModel');
 const { getToken } = require('../util');

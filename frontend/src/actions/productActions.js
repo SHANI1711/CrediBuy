@@ -174,7 +174,6 @@ const saveProductReview = (productId, review) => async (dispatch, getState) => {
 		);
 		dispatch({ type: PRODUCT_REVIEW_SAVE_SUCCESS, payload: data });
 	} catch (error) {
-		// report error
 		dispatch({ type: PRODUCT_REVIEW_SAVE_FAIL, payload: error.message });
 	}
 };

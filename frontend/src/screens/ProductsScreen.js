@@ -37,10 +37,7 @@ function ProductsScreen(props) {
 			setModalVisible(false);
 		}
 		dispatch(listProducts());
-		return () => {
-			//
-		};
-		// eslint-disable-next-line
+		return () => {};
 	}, [successSave, successDelete]);
 
 	const openModal = (product) => {
@@ -152,7 +149,6 @@ function ProductsScreen(props) {
 									name="productImage"
 									id="productImage"
 									required
-									// value={image}
 									accept="image/png, image/gif, image/jpeg"
 									onChange={onImageChange}
 								/>

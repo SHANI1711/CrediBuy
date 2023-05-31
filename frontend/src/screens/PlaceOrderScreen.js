@@ -61,7 +61,6 @@ function PlaceOrderScreen(props) {
 		if (success) {
 			props.history.push('/order/' + order._id);
 		}
-		// eslint-disable-next-line
 	}, [success]);
 
 	return (
@@ -126,12 +125,6 @@ function PlaceOrderScreen(props) {
 								<button
 									className="button primary full-width"
 									onClick={placeOrderHandler}
-
-									// onClick={() => {
-									// 	placeOrderHandler(),
-									// 		alert('Your order has been placed successfully!');
-									// 	props.history.push('/search');
-									// }}
 								>
 									Place Order
 								</button>

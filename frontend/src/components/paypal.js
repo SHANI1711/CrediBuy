@@ -41,9 +41,7 @@ function PaypalButton(props) {
 		if (!window.paypal) {
 			addPaypalSdk();
 		}
-		return () => {
-			//
-		};
+		return () => {};
 	}, []);
 
 	if (!sdkReady) {

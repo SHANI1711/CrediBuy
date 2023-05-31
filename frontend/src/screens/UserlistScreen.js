@@ -11,9 +11,7 @@ function UserlistScreen(props) {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(listUsers());
-		return () => {
-			//
-		};
+		return () => {};
 	}, [dispatch]);
 
 	const deleteHandler = (e) => {

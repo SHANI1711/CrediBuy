@@ -50,9 +50,7 @@ function ProductScreen(props) {
 		props.history.push('/cart/' + props.match.params.id + '?qty=' + qty);
 	};
 
-	const datalayer = (product) => {
-		// console.log("help" +loading)
-	};
+	const datalayer = (product) => {};
 	return (
 		<div>
 			<div className="back-to-result">

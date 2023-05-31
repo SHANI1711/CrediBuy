@@ -1,4 +1,3 @@
-// import jwt from 'jsonwebtoken';
 const jwt = require('jsonwebtoken');
 const config = require('./config');
 const dotenv = require('dotenv');

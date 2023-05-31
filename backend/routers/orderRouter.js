@@ -1,4 +1,3 @@
-// import express from 'express';
 const express = require('express');
 const Order = require('../models/orderModel');
 const { isAuth, isAdmin } = require('../util');

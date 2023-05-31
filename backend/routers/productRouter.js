@@ -1,4 +1,3 @@
-// import express from 'express';
 const express = require('express');
 const Product = require('../models/productModel');
 const { isAuth, isAdmin } = require('../util');
@@ -90,8 +89,6 @@ const upload = multer({ storage: memoryStorage });
 //create product listing
 router.post(
 	'/',
-	// isAuth,
-	// isAdmin,
 	upload.single('productImage'),
 
 	async (req, res) => {
